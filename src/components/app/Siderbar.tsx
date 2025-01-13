@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { EmailContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { ContactDispatch, type Contact } from "../../lib/types/types";
+import ReusableDialog from "./ReusableDialog";
 
 type SidebarProps = {
   isMobileSize: boolean;
@@ -18,6 +19,11 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const { email } = useContext(EmailContext);
   const navigate = useNavigate();
+  const [showDialog, setShowDialog] = useState<boolean>(false);
+  const [contact, setContact] = useState<Contact>({
+    name: "",
+    cell: "",
+  });
 
   const mobileNavigateButton: JSX.Element | null = isMobileSize ? (
     <i
@@ -50,21 +56,8 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   // functions --------------------------------------------------------------
   function handleAddContact(): void {
-    // need to get the name and cell
-    const name: string | null = window.prompt("Name");
-    const cell: string | null = window.prompt("Cell");
-
-    if (name && cell) {
-      const validCell: number = Number(cell);
-
-      if (isNaN(validCell)) return;
-
-      const contactObj: Contact = {
-        name,
-        cell,
-      };
-      contactsDispatch({ type: "ADD_CONTACT", payload: contactObj });
-    }
+    // show the dialog which then updates contact
+    setShowDialog(true);
   }
 
   return (
@@ -100,6 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           {email}
         </p>
       </div>
+      {showDialog && <ReusableDialog setShow={setShowDialog} setContact={setContact} contact={contact} contactsDispatch={contactsDispatch} />}
     </section>
   );
 };
