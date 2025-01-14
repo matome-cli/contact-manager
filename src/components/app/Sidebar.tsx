@@ -74,12 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <li onClick={handleAddContact} className="select-none">
           Add New Contact
         </li>
-        <li
-          onClick={() => contactsDispatch({ type: "SHOW_DELETED" })}
-          className="select-none"
-        >
-          Deleted Contacts
-        </li>
+        <li className="select-none">Deleted Contacts</li>
         <li className="select-none">Search Contacts</li>
       </ul>
 
