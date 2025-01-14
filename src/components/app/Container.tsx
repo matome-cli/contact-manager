@@ -1,7 +1,7 @@
 import { useReducer, useState } from "react";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import AppHeader from "./AppHeader";
-import Sidebar from "./Siderbar";
+import Sidebar from "./Sidebar";
 import ContactLayout from "./Contacts/ContactsLayout";
 import { type Contact } from "../../lib/types/types";
 
