@@ -25,6 +25,11 @@ export type Contact = {
 };
 
 export type ContactDispatch = {
-  type: "ADD_CONTACT" | "REMOVE_CONTACT" | "FILTER_CONTACT" | "SHOW_DELETED";
+  type:
+    | "ADD_CONTACT"
+    | "REMOVE_CONTACT"
+    | "FILTER_CONTACT"
+    | "SHOW_DELETED"
+    | "RESTORE_CONTACT";
   payload?: Contact | string;
 };
