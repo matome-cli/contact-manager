@@ -4,6 +4,7 @@
 
 A simple contact manager built with React and Vite(not complete as yet and a lttle janky)
 
+
 ## Prerequisites
 
 Before you begin, make sure you have the following installed on your machine:
@@ -32,4 +33,7 @@ Follow these steps to get the project up and running on your local machine:
 4. Start the development server to run it locally
      ```PowerShell
      npm run dev
+     npm run host
+  *project is not complete so use copy second comand and view it on mobile
+
 
