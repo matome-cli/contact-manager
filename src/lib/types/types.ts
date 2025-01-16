@@ -24,9 +24,9 @@ export type Contact = {
   cell: string;
 };
 
-
-
 export type Action = {
   type: "ADD_CONTACT" | "REMOVE_CONTACT" | "FILTER_CONTACT" | "RESTORE_CONTACT";
   payload?: Contact | string;
 };
+
+export type ContactType = "Normal" | "Deleted";

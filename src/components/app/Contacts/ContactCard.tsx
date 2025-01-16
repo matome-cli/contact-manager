@@ -1,12 +1,40 @@
-import { type Action } from "../../../lib/types/types";
+import { type Action, ContactType } from "../../../lib/types/types";
 
 type ContactCardProps = {
   name: string;
   cell: string;
   dispatch: React.Dispatch<Action>;
+  contactType: ContactType;
 };
 
-const ContactCard: React.FC<ContactCardProps> = ({ name, cell, dispatch }) => {
+const ContactCard: React.FC<ContactCardProps> = ({
+  name,
+  cell,
+  dispatch,
+  contactType,
+}) => {
+  let button: JSX.Element;
+
+  if (contactType === "Normal") {
+    button = (
+      <button
+        onClick={() => dispatch({ type: "REMOVE_CONTACT", payload: cell })}
+        className="bg-red-500 px-1 rounded-sm w-14 text-[12px] text-white"
+      >
+        DELETE
+      </button>
+    );
+  } else {
+    button = (
+      <button
+        onClick={() => dispatch({ type: "RESTORE_CONTACT", payload: cell })}
+        className="bg-green-500 px-1 rounded-sm w-14 text-[12px] text-white"
+      >
+        RESTORE
+      </button>
+    );
+  }
+
   return (
     <div className="bg-white rounded-lg w-full flex justify-between items-center px-4 relative">
       <img src="contact.jpg" alt="image" className="w-12 h-12 block" />
@@ -16,12 +44,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ name, cell, dispatch }) => {
         <p>{cell}</p>
       </div>
 
-      <button
-        onClick={() => dispatch({ type: "REMOVE_CONTACT", payload: cell })}
-        className="bg-red-500 px-1 rounded-sm w-14 text-[12px] text-white"
-      >
-        DELETE
-      </button>
+      {button}
     </div>
   );
 };

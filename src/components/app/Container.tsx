@@ -3,7 +3,7 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import AppHeader from "./AppHeader";
 import Sidebar from "./Sidebar";
 import ContactLayout from "./Contacts/ContactsLayout";
-import { type Contact, Action } from "../../lib/types/types";
+import { type Contact, Action, ContactType } from "../../lib/types/types";
 
 type State = {
   contacts: Contact[];
@@ -74,6 +74,7 @@ const Container: React.FC = () => {
 
   // becuase there will be more actions for one state var use useReducer (migrate to it)
   const [contactsState, contactsDispatch] = useReducer(reducer, initialContactState);
+  const [contactType, setContactType] = useState<ContactType>("Normal"); // used to display what contact type to render
 
   const mobileNavigateButton: JSX.Element | null = isMobileSize ? (
     <i
@@ -96,9 +97,14 @@ const Container: React.FC = () => {
         showSidebar={showSidbar}
         setShowSidebar={setShowSidebar}
         contactsDispatch={contactsDispatch}
+        setContactType={setContactType}
       />
 
-      <ContactLayout contacts={contactsState.contacts} dispatch={contactsDispatch} />
+      <ContactLayout
+        contacts={contactsState.contacts}
+        dispatch={contactsDispatch}
+        contactType={contactType}
+      />
     </main>
   );
 };

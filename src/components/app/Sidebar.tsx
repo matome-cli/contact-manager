@@ -2,15 +2,14 @@ import { SetStateAction, useContext } from "react";
 import { EmailContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
-import { type Action } from "../../lib/types/types";
-
+import { type ContactType, Action } from "../../lib/types/types";
 
 type SidebarProps = {
   isMobileSize: boolean;
   showSidebar: boolean;
   setShowSidebar: React.Dispatch<SetStateAction<boolean>>;
-  contactsDispatch: React.Dispatch<Action>
-
+  contactsDispatch: React.Dispatch<Action>;
+  setContactType: React.Dispatch<SetStateAction<ContactType>>;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -18,6 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   showSidebar,
   setShowSidebar,
   contactsDispatch,
+  setContactType,
 }) => {
   const { email } = useContext(EmailContext);
   const navigate = useNavigate();
@@ -59,6 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     if (name && cell) {
       // now we can add the contact
       contactsDispatch({ type: "ADD_CONTACT", payload: { name, cell } });
+      setContactType("Normal");
     }
   }
 
@@ -77,7 +78,9 @@ const Sidebar: React.FC<SidebarProps> = ({
         <li onClick={handleAddContact} className="select-none">
           Add New Contact
         </li>
-        <li className="select-none">Deleted Contacts</li>
+        <li className="select-none" onClick={() => setContactType("Deleted")}>
+          Deleted Contacts
+        </li>
         <li className="select-none">Search Contacts</li>
       </ul>
 
@@ -90,7 +93,6 @@ const Sidebar: React.FC<SidebarProps> = ({
           {email}
         </p>
       </div>
-      {/* need to find out how to have this out of the sidebar rendering */}
     </section>
   );
 };
