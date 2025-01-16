@@ -27,7 +27,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = ({
     )
   );
 
-  const deletedContactsCards = contacts.map(
+  const deletedContactsCards = deletedContacts.map(
     (contact, i): JSX.Element => (
       <ContactCard
         key={i + 1000}

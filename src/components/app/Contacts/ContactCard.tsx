@@ -13,22 +13,22 @@ const ContactCard: React.FC<ContactCardProps> = ({
   dispatch, // to be added on a button click
   contactType,
 }) => {
-  let button: JSX.Element;
+  let buttonAction: JSX.Element = <button></button>;
 
   if (contactType === "Normal") {
-    button = (
+    buttonAction = (
       <button
         onClick={() => dispatch({ type: "REMOVE_CONTACT", payload: cell })}
-        className="bg-red-500 px-1 rounded-sm w-14 text-[12px] text-white"
+        className="bg-red-500 px-1 rounded-sm w-16 text-[12px] text-white"
       >
         DELETE
       </button>
     );
-  } else {
-    button = (
+  } else if (contactType === "Deleted") {
+    buttonAction = (
       <button
         onClick={() => dispatch({ type: "RESTORE_CONTACT", payload: cell })}
-        className="bg-green-500 px-1 rounded-sm w-14 text-[12px] text-white"
+        className="bg-green-500 px-1 rounded-sm w-16 text-[12px] text-white"
       >
         RESTORE
       </button>
@@ -44,7 +44,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
         <p>{cell}</p>
       </div>
 
-      {button}
+      {buttonAction}
     </div>
   );
 };

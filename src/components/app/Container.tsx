@@ -31,9 +31,10 @@ function reducer(state: State, action: Action): State {
         return {
           ...state,
           contacts: state.contacts.filter(
-            (contact): boolean => contact.cell !== action.payload
+            (contact): boolean => contact.cell !== action.payload // exclude contact that is true
           ),
           deletedContacts: [
+            // all the other deleted contacts plus one from filtering
             ...state.deletedContacts,
             ...state.contacts.filter(
               (contact): boolean => contact.cell === action.payload
@@ -46,6 +47,7 @@ function reducer(state: State, action: Action): State {
       return {
         ...state,
         contacts: [
+          // all other existing contacts plus the one that got restored
           ...state.contacts,
           ...state.deletedContacts.filter(
             (contact): boolean => contact.cell === action.payload
