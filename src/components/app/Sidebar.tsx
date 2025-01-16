@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { EmailContext } from "../../App";
 import { useNavigate } from "react-router-dom";
-import { type ContactDispatch } from "../../lib/types/types";
+import { type Action } from "../../lib/types/types";
 
 type SidebarProps = {
   isMobileSize: boolean;
   showSidebar: boolean;
   setShowSidebar: React.Dispatch<boolean>;
-  contactsDispatch: React.Dispatch<ContactDispatch>;
+  contactsDispatch: React.Dispatch<Action>;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({

@@ -1,9 +1,9 @@
-import { type ContactDispatch } from "../../../lib/types/types";
+import { type Action } from "../../../lib/types/types";
 
 type ContactCardProps = {
   name: string;
   cell: string;
-  dispatch: React.Dispatch<ContactDispatch>;
+  dispatch: React.Dispatch<Action>;
 };
 
 const ContactCard: React.FC<ContactCardProps> = ({ name, cell, dispatch }) => {
