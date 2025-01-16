@@ -1,4 +1,7 @@
+
 import { type Action, Contact } from "../../../lib/types/types";
+
+
 import ContactCard from "./ContactCard";
 
 type ContactLayoutProps = {
