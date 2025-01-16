@@ -1,9 +1,9 @@
-import { ContactDispatch, type Contact } from "../../../lib/types/types";
+import { type Action, type Contact } from "../../../lib/types/types";
 import ContactCard from "./ContactCard";
 
 type ContactLayoutProps = {
   contacts: Contact[];
-  dispatch: React.Dispatch<ContactDispatch>; // prop drilling 1 lvl
+  dispatch: React.Dispatch<Action>; // prop drilling 1 lvl
 };
 
 const ContactLayout: React.FC<ContactLayoutProps> = ({ contacts, dispatch }) => {

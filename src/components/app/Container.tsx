@@ -44,9 +44,6 @@ function reducer(state: State, action: Action): State {
         };
       }
       return state;
-    case "SHOW_DELETED":
-      window.alert(state.deletedContacts.length + " deleted contacts");
-      return state;
     default:
       return state;
   }

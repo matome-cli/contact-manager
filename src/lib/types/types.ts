@@ -24,12 +24,8 @@ export type Contact = {
   cell: string;
 };
 
-export type ContactDispatch = {
-  type:
-    | "ADD_CONTACT"
-    | "REMOVE_CONTACT"
-    | "FILTER_CONTACT"
-    | "SHOW_DELETED"
-    | "RESTORE_CONTACT";
+
+export type Action = {
+  type: "ADD_CONTACT" | "REMOVE_CONTACT" | "FILTER_CONTACT" | "SHOW_DELETED";
   payload?: Contact | string;
 };
