@@ -1,4 +1,4 @@
-# React + TypeScript + Tailwind CSS + Vite
+# React.js + TypeScript + Tailwind CSS + Vite
 
 # Contact manager
 
