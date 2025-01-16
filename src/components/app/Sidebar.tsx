@@ -58,8 +58,8 @@ const Sidebar: React.FC<SidebarProps> = ({
 
     if (name && cell) {
       // now we can add the contact
-      contactsDispatch({ type: "ADD_CONTACT", payload: { name, cell } });
-      setContactType("Normal");
+      contactsDispatch({ type: "ADD_CONTACT", payload: { name, cell } }); // add contact to contacts array
+      setContactType("Normal"); // now we will render normal contacts in Layout.tsx after adding contact
     }
   }
 
@@ -79,7 +79,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           Add New Contact
         </li>
         <li className="select-none" onClick={() => setContactType("Deleted")}>
-          Deleted Contacts
+          View deleted Contacts
         </li>
         <li className="select-none">Search Contacts</li>
       </ul>

@@ -97,11 +97,12 @@ const Container: React.FC = () => {
         showSidebar={showSidbar}
         setShowSidebar={setShowSidebar}
         contactsDispatch={contactsDispatch}
-        setContactType={setContactType}
+        setContactType={setContactType} // to render the contact type in the layout
       />
 
       <ContactLayout
         contacts={contactsState.contacts}
+        deletedContacts={contactsState.deletedContacts}
         dispatch={contactsDispatch}
         contactType={contactType}
       />

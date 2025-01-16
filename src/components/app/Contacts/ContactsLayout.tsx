@@ -4,12 +4,14 @@ import ContactCard from "./ContactCard";
 
 type ContactLayoutProps = {
   contacts: Contact[];
+  deletedContacts: Contact[]
   dispatch: React.Dispatch<Action>; // prop drilling 1 lvl
   contactType: ContactType;
 };
 
 const ContactLayout: React.FC<ContactLayoutProps> = ({
   contacts,
+  deletedContacts,
   dispatch,
   contactType,
 }) => {
@@ -25,7 +27,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = ({
     )
   );
 
-  const deletedContacts = contacts.map(
+  const deletedContactsCards = contacts.map(
     (contact, i): JSX.Element => (
       <ContactCard
         key={i + 1000}
@@ -42,7 +44,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = ({
       return contactCards;
     }
 
-    return deletedContacts;
+    return deletedContactsCards;
   }
 
   return (

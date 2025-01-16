@@ -10,7 +10,7 @@ type ContactCardProps = {
 const ContactCard: React.FC<ContactCardProps> = ({
   name,
   cell,
-  dispatch,
+  dispatch, // to be added on a button click
   contactType,
 }) => {
   let button: JSX.Element;
