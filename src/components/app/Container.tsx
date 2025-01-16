@@ -3,16 +3,11 @@ import { useWindowSize } from "../../hooks/useWindowSize";
 import AppHeader from "./AppHeader";
 import Sidebar from "./Sidebar";
 import ContactLayout from "./Contacts/ContactsLayout";
-import { type Contact } from "../../lib/types/types";
+import { type Contact, Action } from "../../lib/types/types";
 
 type State = {
   contacts: Contact[];
   deletedContacts: Contact[];
-};
-
-type Action = {
-  type: "ADD_CONTACT" | "REMOVE_CONTACT" | "FILTER_CONTACT" | "SHOW_DELETED";
-  payload?: Contact | string;
 };
 
 function reducer(state: State, action: Action): State {
@@ -22,7 +17,7 @@ function reducer(state: State, action: Action): State {
         // then it is type Contact
         const objToReturn: State = {
           ...state,
-          contacts: [...state.contacts, action.payload],
+          contacts: [...state.contacts, action?.payload],
         };
         objToReturn.contacts.sort((a, b) => a.name.localeCompare(b.name));
         return objToReturn;
@@ -38,12 +33,29 @@ function reducer(state: State, action: Action): State {
           contacts: state.contacts.filter(
             (contact): boolean => contact.cell !== action.payload
           ),
-          deletedContacts: state.contacts.filter(
-            (contact): boolean => contact.cell === action.payload
-          ),
+          deletedContacts: [
+            ...state.deletedContacts,
+            ...state.contacts.filter(
+              (contact): boolean => contact.cell === action.payload
+            ),
+          ],
         };
       }
       return state;
+    case "RESTORE_CONTACT":
+      return {
+        ...state,
+        contacts: [
+          ...state.contacts,
+          ...state.deletedContacts.filter(
+            (contact): boolean => contact.cell === action.payload
+          ),
+        ],
+        deletedContacts: state.deletedContacts.filter(
+          (contact): boolean => contact.cell !== action.type
+        ),
+      };
+    // come back for filtering a contact
     default:
       return state;
   }

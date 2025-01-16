@@ -27,6 +27,6 @@ export type Contact = {
 
 
 export type Action = {
-  type: "ADD_CONTACT" | "REMOVE_CONTACT" | "FILTER_CONTACT" | "SHOW_DELETED";
+  type: "ADD_CONTACT" | "REMOVE_CONTACT" | "FILTER_CONTACT" | "RESTORE_CONTACT";
   payload?: Contact | string;
 };
