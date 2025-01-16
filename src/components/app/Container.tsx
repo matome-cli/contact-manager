@@ -50,11 +50,11 @@ function reducer(state: State, action: Action): State {
           // all other existing contacts plus the one that got restored
           ...state.contacts,
           ...state.deletedContacts.filter(
-            (contact): boolean => contact.cell === action.payload
+            (contact): boolean => contact.cell === action?.payload
           ),
         ],
         deletedContacts: state.deletedContacts.filter(
-          (contact): boolean => contact.cell !== action.type
+          (contact): boolean => contact.cell !== action?.payload
         ),
       };
     // come back for filtering a contact
@@ -107,6 +107,7 @@ const Container: React.FC = () => {
         deletedContacts={contactsState.deletedContacts}
         dispatch={contactsDispatch}
         contactType={contactType}
+        setContactType={setContactType}
       />
     </main>
   );

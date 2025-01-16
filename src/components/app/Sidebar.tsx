@@ -44,6 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: "40px 5px",
+    zIndex: 100,
   };
 
   const navStyles: React.CSSProperties = {
