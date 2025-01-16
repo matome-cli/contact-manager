@@ -34,6 +34,5 @@ Follow these steps to get the project up and running on your local machine:
      ```PowerShell
      npm run dev
      npm run host
-  *project is not complete so copy and paste the second comand to create a local server then type the url (IPv4 address) and view it on your mobile device
-
+  *project is not complete so copy and paste the second comand to create a local server then type the url (IPv4 address) into your browser on your mobile device
 
