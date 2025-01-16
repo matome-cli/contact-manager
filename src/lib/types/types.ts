@@ -24,7 +24,7 @@ export type Contact = {
   cell: string;
 };
 
-export type ContactDispatch = {
+export type Action = {
   type:
     | "ADD_CONTACT"
     | "REMOVE_CONTACT"

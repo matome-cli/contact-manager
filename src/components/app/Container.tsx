@@ -86,7 +86,7 @@ const Container: React.FC = () => {
         isMobileSize={isMobileSize}
         showSidebar={showSidbar}
         setShowSidebar={setShowSidebar}
-        contactsDispatch={contactsDispatch!}
+        contactsDispatch={contactsDispatch}
       />
 
       <ContactLayout contacts={contactsState.contacts} dispatch={contactsDispatch} />
