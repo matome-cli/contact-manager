@@ -2,7 +2,7 @@
 
 # Contact manager
 
-A simple contact manager built with React and Vite(not complete as yet and a lttle janky)
+A simple frontend only contact manager built with React and Vite(not complete as yet and a lttle janky)
 
 
 ## Prerequisites
