@@ -23,10 +23,9 @@ Follow these steps to get the project up and running on your local machine:
 
 1. **Clone the repository**:
    ```PowerShell
-   git clone <repo_url>
-2. Navigate to the project folder
-   ```PowerShell  
-    cd **/contact-manager
+   git clone https://github.com/matome-cli/contact-manager.git
+2. Navigate to the project folder "contact-manager"
+
 3. Install dependencies
    ```PowerShell
      npm i
@@ -34,5 +33,5 @@ Follow these steps to get the project up and running on your local machine:
      ```PowerShell
      npm run dev
      npm run host
-  *project is not complete so copy and paste the second comand to create a local server then type the url (IPv4 address) into your browser on your mobile device
+  *project is not complete so copy and paste the second command to create a local server then type the url (IPv4 address) into your browser on your mobile device
 
