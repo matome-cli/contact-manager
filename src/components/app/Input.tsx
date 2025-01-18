@@ -13,7 +13,7 @@ const Input: React.FC<InputProps> = ({ setContactSearch }) => {
   return (
     <input
       type="text"
-      placeholder="Search contact"
+      placeholder="Search contact name"
       className="fixed top-32 left-[50%] -translate-x-[50%] w-5/6 p-2 outline-none rounded-md"
       onChange={handleChange}
     />
