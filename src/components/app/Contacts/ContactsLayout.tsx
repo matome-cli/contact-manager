@@ -8,6 +8,7 @@ type ContactLayoutProps = {
   dispatch: React.Dispatch<Action>; // prop drilling 1 lvl
   contactType: ContactType;
   setContactType: React.Dispatch<SetStateAction<ContactType>>;
+  contactSearch: string | null;
 };
 
 const ContactLayout: React.FC<ContactLayoutProps> = ({
@@ -16,6 +17,7 @@ const ContactLayout: React.FC<ContactLayoutProps> = ({
   dispatch,
   contactType,
   setContactType,
+  contactSearch,
 }) => {
   const contactCards = contacts.map(
     (contact, i): JSX.Element => (

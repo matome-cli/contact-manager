@@ -112,6 +112,7 @@ const Container: React.FC = () => {
         dispatch={contactsDispatch}
         contactType={contactType}
         setContactType={setContactType}
+        contactSearch={contactSearch}
       />
     </main>
   );
