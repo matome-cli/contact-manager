@@ -1,6 +1,5 @@
 import { SetStateAction } from "react";
 import { type Action, Contact, ContactType } from "../../../lib/types/types";
-
 import ContactCard from "./ContactCard";
 
 type ContactLayoutProps = {
