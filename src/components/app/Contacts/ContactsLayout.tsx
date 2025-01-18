@@ -45,7 +45,24 @@ const ContactLayout: React.FC<ContactLayoutProps> = ({
 
   function renderContacts(): JSX.Element[] | JSX.Element {
     if (contactType === "Normal") {
-      return contactCards;
+      if (!contactSearch) return contactCards; // if search is null return all contactsCards as they are
+
+      // apparently i can use reduce to do more than accumulate which would make this O(n) instead of this O(2n) solution
+      return contacts
+        .filter((contact): boolean =>
+          contact.name.toLocaleLowerCase().includes(contactSearch.toLocaleLowerCase())
+        )
+        .map(
+          (contact, i): JSX.Element => (
+            <ContactCard
+              key={i + 70}
+              cell={contact.cell}
+              name={contact.name}
+              contactType="Normal"
+              dispatch={dispatch}
+            />
+          )
+        );
     }
 
     if (deletedContacts.length === 0) {
@@ -62,7 +79,31 @@ const ContactLayout: React.FC<ContactLayoutProps> = ({
       );
     }
 
-    return deletedContactsCards;
+    if (contactType === "Deleted") {
+      if (!contactSearch) return deletedContactsCards;
+
+      return deletedContacts
+        .filter((delContact): boolean =>
+          delContact.name.toLocaleLowerCase().includes(contactSearch.toLocaleLowerCase())
+        )
+        .map(
+          (delContact, i): JSX.Element => (
+            <ContactCard
+              key={i + 432}
+              cell={delContact.cell}
+              name={delContact.name}
+              dispatch={dispatch}
+              contactType="Deleted"
+            />
+          )
+        );
+    }
+
+    return (
+      <p className="text-red-500 text-3xl font-black ">
+        Error: renderContacts function in ContactsLayout.tsx!
+      </p>
+    );
   }
 
   return (
