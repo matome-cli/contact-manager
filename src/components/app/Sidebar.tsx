@@ -82,7 +82,6 @@ const Sidebar: React.FC<SidebarProps> = ({
         <li className="select-none" onClick={() => setContactType("Deleted")}>
           View Deleted Contacts
         </li>
-        <li className="select-none">Search Contacts</li>
       </ul>
 
       <div className="flex flex-col justify-center items-center">
