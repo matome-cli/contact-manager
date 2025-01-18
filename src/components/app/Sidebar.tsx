@@ -80,7 +80,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           Add New Contact
         </li>
         <li className="select-none" onClick={() => setContactType("Deleted")}>
-          View deleted Contacts
+          View Deleted Contacts
         </li>
         <li className="select-none">Search Contacts</li>
       </ul>
