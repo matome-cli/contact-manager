@@ -160,7 +160,7 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
   }
 
   return (
-    <form className="flex flex-col justify-center items-center h-2/3 w-full px-1 bg-transparent xl:w-1/2 ">
+    <form className="flex flex-col justify-center items-center h-2/3 w-full px-1 bg-transparent lg:gap-6 xl:w-1/2 ">
       <h1 className="font-extrabold text-3xl text-center md:text-5xl">{text.header}</h1>
 
       <div className="flex flex-col justify-center items-center gap-y-3 px-3 py-3 w-full">
@@ -169,17 +169,17 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
 
       <button
         type="submit"
-        className="text-white font-semibold bg-orange-700 rounded-md w-40 text-center mt-4 outline-none py-2 md:w-56 md:h-12 md:text-2xl"
+        className="text-white font-semibold bg-orange-700 rounded-md w-40 text-center mt-4 outline-none py-2 px-1 md:w-56 md:h-12 md:text-2xl"
         onClick={handleSubmit}
       >
         {text.button}
       </button>
 
-      <p className="font-semibold text-center mt-3 md:text-xl">
+      <p className="font-semibold text-center mt-3 md:text-xl lg:text-xl">
         {text.paragraph}
         <Link
           to={text.linkTo}
-          className="text-orange-700 ml-2 hover:underline decoration-wavy "
+          className="text-orange-700 ml-2 lg:hover:underline decoration-wavy "
         >
           {text.link}
         </Link>
