@@ -49,7 +49,6 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const navStyles: React.CSSProperties = {
     width: "100%",
-    // backgroundColor: "lightblue",
   };
 
   // functions --------------------------------------------------------------
