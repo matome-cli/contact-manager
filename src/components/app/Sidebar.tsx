@@ -1,8 +1,8 @@
 import { SetStateAction, useContext } from "react";
 import { EmailContext } from "../../App";
 import { useNavigate } from "react-router-dom";
-
 import { type ContactType, Action } from "../../lib/types/types";
+// handle respondiveness using useWindow hook
 
 type SidebarProps = {
   isMobileSize: boolean;
