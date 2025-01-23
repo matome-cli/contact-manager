@@ -14,13 +14,13 @@ type SidebarProps = {
 
 const Sidebar: React.FC<SidebarProps> = ({
   isMobileSize,
-  showSidebar,
+  showSidebar, // used to hide the sidebar when on mobile
   setShowSidebar,
   contactsDispatch,
   setContactType,
 }) => {
   const { email } = useContext(EmailContext);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // to navigate to the login/signin page
 
   const mobileNavigateButton: JSX.Element | null = isMobileSize ? (
     <i
@@ -31,7 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     </i>
   ) : null;
 
-  // js inline styles for mobile ------------------------------------------------------------------------
+  // js inline styles for small screens ------------------------------------------------------------------------
   const mobileSidebar: React.CSSProperties = {
     position: "absolute",
     left: "0px",
@@ -39,7 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     width: "180px",
     height: "30%",
     backgroundColor: "lightgray",
-    display: !showSidebar ? "none" : "flex", // starts out being false
+    display: !showSidebar ? "none" : "flex", // starts out being false so none
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
@@ -71,15 +71,18 @@ const Sidebar: React.FC<SidebarProps> = ({
     // tailwind styles will be used when is it larger than mobile on <section only>
     // only moile style that is done by tailwind CSS is the <ul>
     <section
-      className="h-full w-1/5 sidebar-rounding flex flex-col justify-center items-center"
+      className="h-full w-1/5 sidebar-rounding flex flex-col justify-center items-center gap-4 md:text-base"
       style={isMobileSize ? mobileSidebar : undefined}
     >
       {mobileNavigateButton ? mobileNavigateButton : ""}
-      <ul
-        style={isMobileSize ? navStyles : undefined}
-        className={isMobileSize ? "space-y-3" : undefined}
-      >
-        <li onClick={handleAddContact} className="select-none">
+
+      {/* nav bar come back and make it semantically correct */}
+      <ul style={isMobileSize ? navStyles : undefined}>
+        <li
+          onClick={handleAddContact}
+          className="select-none"
+          style={{ marginBottom: "12px" }}
+        >
           Add New Contact
         </li>
         <li className="select-none" onClick={() => setContactType("Deleted")}>
