@@ -19,9 +19,9 @@ export const useWindowSize = () => {
   }
 
   useEffect(() => {
-    document.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
 
-    return () => document.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []); // what should the dependencies be
 
   return windowSize;

@@ -77,7 +77,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       {mobileNavigateButton ? mobileNavigateButton : ""}
 
       {/* nav bar come back and make it semantically correct */}
-      <ul style={isMobileSize ? navStyles : undefined}>
+      <ul className="w-full space-y-3" style={isMobileSize ? navStyles : undefined}>
         <li
           onClick={handleAddContact}
           className="select-none"
