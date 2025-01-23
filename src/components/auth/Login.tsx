@@ -18,7 +18,7 @@ const Login: React.FC = () => {
 
   return (
     <main className="relative w-screen h-svh flex justify-center items-center bg-gradient-to-t from-orange-600 to-white px-1">
-      <AppHeader shrink={false} />
+      <AppHeader fullWidth={true} />
 
       <ReusableForm text={text} fields={fields} flag="SIGNIN" />
     </main>

@@ -18,7 +18,7 @@ const Signup: React.FC = () => {
 
   return (
     <main className="w-full h-dvh relative bg-gradient-to-t from-orange-600 to-white flex justify-center items-center px-1">
-      <AppHeader shrink={false} />
+      <AppHeader fullWidth={true} />
 
       <ReusableForm text={text} fields={fields} flag="REGISTER" />
     </main>
