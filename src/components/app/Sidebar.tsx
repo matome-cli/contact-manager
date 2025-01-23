@@ -31,7 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     </i>
   ) : null;
 
-  // js inline styles ---------------------------------------------------------------------------
+  // js inline styles for mobile ------------------------------------------------------------------------
   const mobileSidebar: React.CSSProperties = {
     position: "absolute",
     left: "0px",
@@ -55,6 +55,10 @@ const Sidebar: React.FC<SidebarProps> = ({
   function handleAddContact(): void {
     const name: string | null = window.prompt("Contact name");
     const cell: string | null = window.prompt("Contact cell");
+
+    if (!name || !cell) {
+      window.alert("Need both name and cell to create new contact");
+    }
 
     if (name && cell) {
       // now we can add the contact
