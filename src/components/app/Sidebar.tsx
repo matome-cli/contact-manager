@@ -2,7 +2,6 @@ import { SetStateAction, useContext } from "react";
 import { EmailContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { type ContactType, Action } from "../../lib/types/types";
-// handle respondiveness using useWindow hook
 
 type SidebarProps = {
   isMobileSize: boolean;
@@ -91,7 +90,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       </ul>
 
       <div className="flex flex-col justify-center items-center">
-        <p className=" translate-y-4">Account:</p>
+        <p className={`${isMobileSize ? `translate-x-4` : `-translate-x-8`}`}>Account:</p>
         <p
           className="text-xs text-center underline-offset-3 underline mt-4"
           onClick={() => navigate("/")}
