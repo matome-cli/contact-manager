@@ -92,7 +92,7 @@ const Container: React.FC = () => {
   return (
     <main className="w-full h-dvh relative flex justify-start items-center bg-gradient-to-t from-orange-600 to-white pt-[50px] px-2">
       {/* app header is not a flex item its position fixed */}
-      <AppHeader shrink={!isMobileSize} />
+      <AppHeader />
       {/* false if it is a mobile device and true if larger */}
       {mobileNavigateButton ? mobileNavigateButton : null}
 
