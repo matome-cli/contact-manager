@@ -45,10 +45,9 @@ function reducer(state: State, action: Action): State {
       }
       return state;
     case "RESTORE_CONTACT":
-      return {
+      const objToReturn: State = {
         ...state,
         contacts: [
-          // all other existing contacts plus the one that got restored
           ...state.contacts,
           ...state.deletedContacts.filter(
             (contact): boolean => contact.cell === action?.payload
@@ -58,7 +57,9 @@ function reducer(state: State, action: Action): State {
           (contact): boolean => contact.cell !== action?.payload
         ),
       };
-    // come back for filtering a contact
+      objToReturn.contacts.sort((a, b) => a.name.localeCompare(b.name));
+
+      return objToReturn;
     default:
       return state;
   }
@@ -97,7 +98,6 @@ const Container: React.FC = () => {
       {mobileNavigateButton ? mobileNavigateButton : null}
 
       <Sidebar
-        isMobileSize={isMobileSize}
         showSidebar={showSidbar}
         setShowSidebar={setShowSidebar}
         contactsDispatch={contactsDispatch}

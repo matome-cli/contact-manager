@@ -2,9 +2,9 @@ import { SetStateAction, useContext } from "react";
 import { EmailContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { type ContactType, Action } from "../../lib/types/types";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 type SidebarProps = {
-  isMobileSize: boolean;
   showSidebar: boolean;
   setShowSidebar: React.Dispatch<SetStateAction<boolean>>;
   contactsDispatch: React.Dispatch<Action>;
@@ -12,14 +12,16 @@ type SidebarProps = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({
-  isMobileSize,
   showSidebar, // used to hide the sidebar when on mobile
   setShowSidebar,
   contactsDispatch,
   setContactType,
 }) => {
   const { email } = useContext(EmailContext);
+  const { width } = useWindowSize();
   const navigate = useNavigate(); // to navigate to the login/signin page
+
+  const isMobileSize: boolean = width < 768;
 
   const mobileNavigateButton: JSX.Element | null = isMobileSize ? (
     <i
