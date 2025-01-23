@@ -26,19 +26,19 @@ function reducer(state: State, action: Action): State {
       return state;
     case "REMOVE_CONTACT":
       // remove the contact from one array then add it to the other
-      const number: number = Number(action.payload); // will either be a number or NaN
+      const number: number = Number(action?.payload); // will either be a number or NaN
 
       if (typeof action.payload === "string" && !isNaN(number)) {
         return {
           ...state,
           contacts: state.contacts.filter(
-            (contact): boolean => contact.cell !== action.payload // exclude contact that is true
+            (contact): boolean => contact.cell !== action?.payload // exclude contact that is true
           ),
           deletedContacts: [
             // all the other deleted contacts plus one from filtering
             ...state.deletedContacts,
             ...state.contacts.filter(
-              (contact): boolean => contact.cell === action.payload
+              (contact): boolean => contact.cell === action?.payload
             ),
           ],
         };
