@@ -7,6 +7,7 @@ type Window = {
 
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState<Window>({
+    // default
     height: window.innerHeight,
     width: window.innerHeight,
   });

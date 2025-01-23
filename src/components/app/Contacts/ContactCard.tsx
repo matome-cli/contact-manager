@@ -19,7 +19,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
     buttonAction = (
       <button
         onClick={() => dispatch({ type: "REMOVE_CONTACT", payload: cell })}
-        className="bg-red-500 px-1 rounded-sm w-16 text-[12px] text-white"
+        className="bg-red-500 px-1 h-7 rounded-sm w-16 text-[12px] text-white"
       >
         DELETE
       </button>
@@ -28,7 +28,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
     buttonAction = (
       <button
         onClick={() => dispatch({ type: "RESTORE_CONTACT", payload: cell })}
-        className="bg-green-500 px-1 rounded-sm w-16 text-[12px] text-white"
+        className="bg-green-500 px-1 h-7 rounded-sm w-16 text-[12px] text-white"
       >
         RESTORE
       </button>
@@ -36,7 +36,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-lg w-full flex justify-between items-center px-4 relative">
+    <div className="bg-white rounded-lg w-full h-12 flex justify-between items-center px-4 relative md:w-4/5 md:-translate-x-6">
       <img src="contact.jpg" alt="image" className="w-12 h-12 block" />
 
       <div className="flex flex-col justify-between items-center">

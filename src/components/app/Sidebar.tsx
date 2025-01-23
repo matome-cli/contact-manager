@@ -70,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     // tailwind styles will be used when is it larger than mobile on <section only>
     // only moile style that is done by tailwind CSS is the <ul>
     <section
-      className="h-full w-1/5 sidebar-rounding flex flex-col justify-center items-center gap-4 md:text-base"
+      className="h-full w-[15%] sidebar-rounding flex flex-col justify-center items-center gap-4 md:text-base"
       style={isMobileSize ? mobileSidebar : undefined}
     >
       {mobileNavigateButton ? mobileNavigateButton : ""}
@@ -79,18 +79,20 @@ const Sidebar: React.FC<SidebarProps> = ({
       <ul className="w-full space-y-3" style={isMobileSize ? navStyles : undefined}>
         <li
           onClick={handleAddContact}
-          className="select-none"
+          className="select-none md:text-lg"
           style={{ marginBottom: "12px" }}
         >
           Add New Contact
         </li>
-        <li className="select-none" onClick={() => setContactType("Deleted")}>
+        <li className="select-none md:text-lg" onClick={() => setContactType("Deleted")}>
           View Deleted Contacts
         </li>
       </ul>
 
       <div className="flex flex-col justify-center items-center">
-        <p className={`${isMobileSize ? `translate-x-4` : `-translate-x-8`}`}>Account:</p>
+        <p className={`${isMobileSize ? `-translate-x-4` : `-translate-x-9`}`}>
+          Account:
+        </p>
         <p
           className="text-xs text-center underline-offset-3 underline mt-4"
           onClick={() => navigate("/")}
