@@ -132,6 +132,7 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
       if (userObject.password === password) {
         // user has been authenticated
         updateUserEmail(user.email!);
+        login();
         navigate("/manager"); // the actual app component
       } else {
         // Passwords do not match
