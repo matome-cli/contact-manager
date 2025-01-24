@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
 import AppHeader from "./app/AppHeader";
+import { useAuth } from "../hooks/useAuth";
 
 const PageNotFound: React.FC = () => {
+  const { updateUserEmail, logout } = useAuth();
+
+  function handleLogoutLink(): void {
+    logout();
+    updateUserEmail("");
+  }
+
   return (
     <main className="w-full h-dvh flex flex-col justify-center items-center gap-9 bg-gradient-to-t from-orange-600 to-white relative">
       {/* out of normal flow */}
@@ -12,10 +20,15 @@ const PageNotFound: React.FC = () => {
       {/* this should not take user back to login but the actual app */}
 
       <div className="space-x-8">
-        <Link className="text-orange-700 ml-2 lg:hover:underline decoration-wavy " to="/">
+        <Link
+          onClick={handleLogoutLink}
+          className="text-orange-700 ml-2 lg:hover:underline decoration-wavy "
+          to="/"
+        >
           Login
         </Link>
         <Link
+          onClick={handleLogoutLink}
           className="text-orange-700 ml-2 lg:hover:underline decoration-wavy "
           to="/create-account"
         >
