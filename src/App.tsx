@@ -3,24 +3,11 @@ import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import PageNotFound from "./components/PageNotFound";
 import Container from "./components/app/Container";
-import { createContext, useState } from "react";
-
-type Context = {
-  // typing the value
-  email: string;
-  setEmail: React.Dispatch<string>;
-};
-
-export const EmailContext = createContext<Context>({
-  email: "",
-  setEmail: (): void => {},
-});
+import AuthProvider from "./components/context/AuthProvider";
 
 const App: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-
   return (
-    <EmailContext.Provider value={{ email, setEmail }}>
+    <AuthProvider>
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -31,7 +18,7 @@ const App: React.FC = () => {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
-    </EmailContext.Provider>
+    </AuthProvider>
   );
 };
 

@@ -1,8 +1,8 @@
 import { SetStateAction, useContext } from "react";
-import { EmailContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { type ContactType, Action } from "../../lib/types/types";
 import { useWindowSize } from "../../hooks/useWindowSize";
+import { useAuth } from "../../hooks/useAuth";
 
 type SidebarProps = {
   showSidebar: boolean;
@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   contactsDispatch,
   setContactType,
 }) => {
-  const { email } = useContext(EmailContext);
+  const { email } = useAuth();
   const { width } = useWindowSize();
   const navigate = useNavigate(); // to navigate to the login/signin page
 

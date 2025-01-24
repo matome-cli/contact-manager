@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { type User, Field, Text, AuthError } from "../../lib/types/types";
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { isValidEmail, resetInputs } from "../../lib/utils/utils";
-import { EmailContext } from "../../App";
+import { useAuth } from "../../hooks/useAuth";
 
 type ReusableFormProps = {
   text: Text;
@@ -25,7 +25,7 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
     password: null,
   });
 
-  const { setEmail } = useContext(EmailContext);
+  const { updateUserEmail } = useAuth();
 
   const navigate = useNavigate();
 
@@ -132,7 +132,7 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
       // Check if password matches
       if (userObject.password === password) {
         // user has been authenticated
-        setEmail(user.email!);
+        updateUserEmail(user.email!);
         navigate("/manager"); // the actual app component
       } else {
         // Passwords do not match
@@ -153,7 +153,7 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
         localStorage.setItem(email, JSON.stringify(newUser));
 
         // Navigate to success page or dashboard
-        setEmail(user.email!);
+        updateUserEmail(user.email!);
         navigate("/manager");
       }
     }
