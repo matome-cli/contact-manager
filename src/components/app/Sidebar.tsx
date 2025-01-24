@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   contactsDispatch,
   setContactType,
 }) => {
-  const { email } = useAuth();
+  const { email, logout } = useAuth();
   const { width } = useWindowSize();
   const navigate = useNavigate(); // to navigate to the login/signin page
 
@@ -97,7 +97,10 @@ const Sidebar: React.FC<SidebarProps> = ({
         </p>
         <p
           className="text-xs text-center underline-offset-3 underline mt-4"
-          onClick={() => navigate("/")}
+          onClick={() => {
+            logout(); // logs out user (deny acces to private roots)
+            navigate("/");
+          }}
         >
           {email}
         </p>
