@@ -1,4 +1,4 @@
-import { SetStateAction, useContext } from "react";
+import { SetStateAction } from "react";
 import { useNavigate } from "react-router-dom";
 import { type ContactType, Action } from "../../lib/types/types";
 import { useWindowSize } from "../../hooks/useWindowSize";
