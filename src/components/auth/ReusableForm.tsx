@@ -25,8 +25,7 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
     password: null,
   });
 
-  const { updateUserEmail } = useAuth();
-
+  const { updateUserEmail, login } = useAuth();
   const navigate = useNavigate();
 
   // -----------------------------------------------------------------------------------------------------
@@ -154,6 +153,7 @@ const ReusableForm: React.FC<ReusableFormProps> = ({ text, fields, flag }) => {
 
         // Navigate to success page or dashboard
         updateUserEmail(user.email!);
+        login(); // now the user is authenticated and has access to manager route
         navigate("/manager");
       }
     }
