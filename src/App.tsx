@@ -4,6 +4,7 @@ import Signup from "./components/auth/Signup";
 import PageNotFound from "./components/PageNotFound";
 import Container from "./components/app/Container";
 import AuthProvider from "./components/context/AuthProvider";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App: React.FC = () => {
   return (
@@ -12,7 +13,14 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/create-account" element={<Signup />} />
-          <Route path="/manager" element={<Container />}>
+          <Route
+            path="/manager"
+            element={
+              <ProtectedRoute>
+                <Container />
+              </ProtectedRoute>
+            }
+          >
             {/* children to show contact full details */}
           </Route>
           <Route path="*" element={<PageNotFound />} />

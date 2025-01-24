@@ -1,10 +1,10 @@
 import { useAuth } from "../hooks/useAuth";
 
 type ProtectedRouteProps = {
-  child: JSX.Element;
+  children: JSX.Element;
 };
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ child }) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { isAuth } = useAuth();
 
   if (!isAuth) {
@@ -12,7 +12,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ child }) => {
     return <div></div>;
   }
 
-  return child;
+  return children;
 };
 
 export default ProtectedRoute;
