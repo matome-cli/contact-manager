@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   contactsDispatch,
   setContactType,
 }) => {
-  const { email, logout } = useAuth();
+  const { email, logout, updateUserEmail } = useAuth();
   const { width } = useWindowSize();
   const navigate = useNavigate(); // to navigate to the login/signin page
 
@@ -99,6 +99,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           className="text-xs text-center underline-offset-3 underline mt-4"
           onClick={() => {
             logout(); // logs out user (deny acces to private roots)
+            updateUserEmail(""); // user is logged out and we now reset email to empty string
             navigate("/");
           }}
         >
