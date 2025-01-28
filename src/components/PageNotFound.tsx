@@ -34,12 +34,6 @@ const PageNotFound: React.FC = () => {
         >
           Signup
         </Link>
-        <Link
-          className="text-orange-700 ml-2 lg:hover:underline decoration-wavy "
-          to="/manager"
-        >
-          Contacts
-        </Link>
       </div>
     </main>
   );
