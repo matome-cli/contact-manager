@@ -1,4 +1,5 @@
 import { useAuth } from "../hooks/useAuth";
+import NotAuth from "./NotAuth";
 
 type ProtectedRouteProps = {
   children: JSX.Element;
@@ -9,7 +10,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
   if (!isAuth) {
     // need to go to a page to ask user to sigin or login
-    return <div></div>;
+    return <NotAuth />;
   }
 
   return children;
